@@ -1,11 +1,11 @@
-# ![LOGO](logo.png) AWS Lambda MSP Connector
+# ![LOGO](logo.png) AWS Lambda **flow**ground Connector
 
 ## Description
 
-A generated MSP connector for the AWS Lambda API (version 2015-03-31).
+A generated **flow**ground connector for the AWS Lambda API (version 2015-03-31).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/lambda/2015-03-31/swagger.json<br/>
-Generated at: 2019-05-07T11:16:13+03:00
+Generated at: 2019-05-07T17:35:53+03:00
 
 ## API Description
 
@@ -513,7 +513,7 @@ Supported authorization schemes:
 
 ## License
 
-flowground :- Telekom iPaaS / amazonaws-com-lambda-connector<br/>
+**flow**ground :- Telekom iPaaS / amazonaws-com-lambda-connector<br/>
 Copyright © 2019, [Deutsche Telekom AG](https://www.telekom.de)<br/>
 contact: flowground@telekom.de
 
