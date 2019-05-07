@@ -1,0 +1,115 @@
+{
+    "type": "object",
+    "properties": {
+        "LayerName": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "CompatibleRuntimes": {
+                    "description": "A list of compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">function runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.",
+                    "items": {
+                        "enum": [
+                            "nodejs",
+                            "nodejs4.3",
+                            "nodejs6.10",
+                            "nodejs8.10",
+                            "java8",
+                            "python2.7",
+                            "python3.6",
+                            "python3.7",
+                            "dotnetcore1.0",
+                            "dotnetcore2.0",
+                            "dotnetcore2.1",
+                            "nodejs4.3-edge",
+                            "go1.x",
+                            "ruby2.5",
+                            "provided"
+                        ],
+                        "type": "string"
+                    },
+                    "maxItems": 5,
+                    "type": "array"
+                },
+                "Content": {
+                    "description": "The function layer archive.",
+                    "properties": {
+                        "S3Bucket": {
+                            "description": "The Amazon S3 bucket of the layer archive.",
+                            "maxLength": 63,
+                            "minLength": 3,
+                            "pattern": "^[0-9A-Za-z\\.\\-_]*(?<!\\.)$",
+                            "type": "string"
+                        },
+                        "S3Key": {
+                            "description": "The Amazon S3 key of the layer archive.",
+                            "maxLength": 1024,
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "S3ObjectVersion": {
+                            "description": "For versioned objects, the version of the layer archive object to use.",
+                            "maxLength": 1024,
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "ZipFile": {
+                            "description": "The base64-encoded contents of the layer archive. AWS SDK and AWS CLI clients handle the encoding for you.",
+                            "format": "password",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Description": {
+                    "description": "The description of the version.",
+                    "maxLength": 256,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "LicenseInfo": {
+                    "description": "<p>The layer's software license. It can be any of the following:</p> <ul> <li> <p>An <a href=\"https://spdx.org/licenses/\">SPDX license identifier</a>. For example, <code>MIT</code>.</p> </li> <li> <p>The URL of a license hosted on the internet. For example, <code>https://opensource.org/licenses/MIT</code>.</p> </li> <li> <p>The full text of the license.</p> </li> </ul>",
+                    "maxLength": 512,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Content"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

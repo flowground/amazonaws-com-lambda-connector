@@ -1,0 +1,73 @@
+{
+    "type": "object",
+    "properties": {
+        "LayerName": {
+            "required": true,
+            "type": "string"
+        },
+        "VersionNumber": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Action": {
+                    "description": "The API action that grants access to the layer. For example, <code>lambda:GetLayerVersion</code>.",
+                    "pattern": "lambda:GetLayerVersion",
+                    "type": "string"
+                },
+                "OrganizationId": {
+                    "description": "With the principal set to <code>*</code>, grant permission to all accounts in the specified organization.",
+                    "pattern": "o-[a-z0-9]{10,32}",
+                    "type": "string"
+                },
+                "Principal": {
+                    "description": "An account ID, or <code>*</code> to grant permission to all AWS accounts.",
+                    "pattern": "\\d{12}|\\*|arn:(aws[a-zA-Z-]*):iam::\\d{12}:root",
+                    "type": "string"
+                },
+                "StatementId": {
+                    "description": "An identifier that distinguishes the policy from others on the same layer version.",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "pattern": "([a-zA-Z0-9-_]+)",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StatementId",
+                "Action",
+                "Principal"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

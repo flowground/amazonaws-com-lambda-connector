@@ -1,0 +1,90 @@
+{
+    "type": "object",
+    "properties": {
+        "FunctionName": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "example": {
+                "FunctionName": "myFunction",
+                "Publish": true,
+                "S3Bucket": "myBucket",
+                "S3Key": "myKey",
+                "S3ObjectVersion": "1",
+                "ZipFile": "fileb://file-path/file.zip"
+            },
+            "properties": {
+                "DryRun": {
+                    "description": "Set to true to validate the request parameters and access permissions without modifying the function code.",
+                    "type": "boolean"
+                },
+                "Publish": {
+                    "description": "Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.",
+                    "type": "boolean"
+                },
+                "RevisionId": {
+                    "description": "Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.",
+                    "type": "string"
+                },
+                "S3Bucket": {
+                    "description": "An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.",
+                    "maxLength": 63,
+                    "minLength": 3,
+                    "pattern": "^[0-9A-Za-z\\.\\-_]*(?<!\\.)$",
+                    "type": "string"
+                },
+                "S3Key": {
+                    "description": "The Amazon S3 key of the deployment package.",
+                    "maxLength": 1024,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "S3ObjectVersion": {
+                    "description": "For versioned objects, the version of the deployment package object to use.",
+                    "maxLength": 1024,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "ZipFile": {
+                    "description": "The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.",
+                    "format": "password",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

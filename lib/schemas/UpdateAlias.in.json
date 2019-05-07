@@ -1,0 +1,96 @@
+{
+    "type": "object",
+    "properties": {
+        "FunctionName": {
+            "required": true,
+            "type": "string"
+        },
+        "Name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "example": {
+                "Description": "",
+                "FunctionName": "myFunction",
+                "FunctionVersion": "1",
+                "Name": "functionAlias"
+            },
+            "properties": {
+                "Description": {
+                    "description": "A description of the alias.",
+                    "maxLength": 256,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "FunctionVersion": {
+                    "description": "The function version that the alias invokes.",
+                    "maxLength": 1024,
+                    "minLength": 1,
+                    "pattern": "(\\$LATEST|[0-9]+)",
+                    "type": "string"
+                },
+                "RevisionId": {
+                    "description": "Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying an alias that has changed since you last read it.",
+                    "type": "string"
+                },
+                "RoutingConfig": {
+                    "description": "The <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html\">routing configuration</a> of the alias.",
+                    "properties": {
+                        "AdditionalVersionWeights": {
+                            "description": "The name of the second alias, and the percentage of traffic that's routed to it.",
+                            "items": {
+                                "properties": {
+                                    "key": {
+                                        "maxLength": 1024,
+                                        "minLength": 1,
+                                        "pattern": "[0-9]+",
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "format": "double",
+                                        "maximum": 1,
+                                        "minimum": 0,
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
